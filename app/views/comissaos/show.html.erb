@@ -1,0 +1,71 @@
+<h1>Comissão</h1>
+
+<ul class="ul-show">
+
+    <li>
+        <b>Cliente:</b>
+        <%=h @comissao.venda.cliente.nome %>
+    </li>
+
+    <li>
+        <b>Seguradora:</b>
+        <%=h @comissao.venda.seguradora.nome %>
+    </li>
+
+    <li>
+        <b>Produtor:</b>
+        <%=h @comissao.venda.user.name %>
+    </li>
+
+    <li>
+        <b>Data:</b>
+        <%=h @comissao.data.strftime("%d/%m/%Y") %>
+    </li>
+
+    <li>
+        <b>Apolice:</b>
+        <%=h @comissao.apolice %>
+    </li>
+
+    <li>
+        <b>N° Parcela:</b>
+        <%=h @comissao.parcela %>
+    </li>
+
+    <li>
+        <b>Recebido:</b>
+        <%=h number_to_currency(@comissao.recebido,
+            :unit => "R$",
+            :separator => ",",
+            :delimiter => "") %>
+    </li>
+
+    <li>
+        <b>Cancelado:</b>
+        <%=h number_to_currency(@comissao.cancelado,
+            :unit => "R$",
+            :separator => ",",
+            :delimiter => "") %>
+    </li>
+
+    <li>
+        <b>Retido:</b>
+        <%=h number_to_currency(@comissao.retido,
+            :unit => "R$",
+            :separator => ",",
+            :delimiter => "") %>
+    </li>
+
+    <li>
+        <b>Comissao:</b>
+        <%=h number_to_currency(@comissao.comissao,
+            :unit => "R$",
+            :separator => ",",
+            :delimiter => "") %>
+    </li>
+
+    <li class="ul-form-btn">
+        <%= link_to 'Editar', edit_comissao_path(@comissao) %> |
+        <%= link_to 'Voltar', comissaos_path %>
+    </li>
+</ul>

@@ -1,0 +1,36 @@
+<ul id="navmenu-h">
+    <li><a href="/home">Página Principal</a></li>
+    <% if is_logged_in? %>
+        <li><a href="#">Cadastro +</a>
+            <ul>
+                <li><%= link_to 'Usuário', :controller => 'users', :action => 'new' %></li>
+                <% if logged_in_user.has_role?('cliente') %>
+                    <li>
+                        <%= link_to 'Cliente', :controller => 'clientes' %>
+                    </li>
+                <% end %>
+                <% if logged_in_user.has_role?('venda') %>
+                    <li>
+                        <%= link_to 'Vendas', :controller => 'vendas' %>
+                    </li>
+                <% end %>
+                <% if logged_in_user.has_role?('seguradora') %>
+                    <li>
+                        <%= link_to 'Seguradora', :controller => 'seguradoras' %>
+                    </li>
+                <% end %>
+                <% if logged_in_user.has_role?('comissao') %>
+                    <li>
+                        <%= link_to 'Comissão', :controller => 'comissaos' %>
+                    </li>
+                <% end %>
+                <% if logged_in_user.has_role?('retirada') %>
+                    <li>
+                        <%= link_to 'Retirada', :controller => 'retiradas' %>
+                    </li>
+                <% end %>
+            </ul>
+        </li>
+        <li><a href="#">Ajuda</a></li>
+    <% end  %>
+</ul>

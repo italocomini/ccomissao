@@ -1,0 +1,28 @@
+<h1>Seguradora</h1>
+
+<table class="clist">
+    <thead>
+        <tr>
+            <th width="70px">Código</th>
+            <th>Nome</th>
+            <th width="120px">Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% for seguradora in @seguradoras %>
+            <tr>
+                <td><%=h seguradora.id %></td>
+                <td><%=h seguradora.nome %></td>
+                <td align="center">
+                    <%= link_to 'Exibir', seguradora %> | 
+                    <%= link_to 'Editar', edit_seguradora_path(seguradora) %> |
+                    <%= link_to 'Excluir', seguradora, :confirm => 'Deseja excluir?', :method => :delete %>
+                </td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>
+
+<br />
+
+<%= link_to 'Incluir Seguradora', new_seguradora_path %>

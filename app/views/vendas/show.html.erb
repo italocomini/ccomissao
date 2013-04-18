@@ -1,0 +1,17 @@
+<h1>Venda</h1>
+
+<ul class="ul-show">
+    <li>Cliente: <b><%= @venda.cliente.nome %></b></li>
+    <li>Seguradora: <b><%= @venda.seguradora.nome %></b></li>
+    <li>Produtor: <b><%= @venda.user.name %></b></li>
+    <li>
+        Última atualização:
+        <b>
+            <%= @venda.updated_at.strftime("%d/%m/%Y") %>
+        </b>
+    </li>
+    <li class="ul-form-btn">
+        <%= link_to 'Editar', edit_venda_path(@venda) %> |
+        <%= link_to 'Voltar', vendas_path %>
+    </li>
+</ul>

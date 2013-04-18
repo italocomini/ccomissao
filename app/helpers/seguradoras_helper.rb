@@ -1,0 +1,2 @@
+module SeguradorasHelper
+end

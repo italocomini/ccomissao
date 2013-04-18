@@ -1,0 +1,44 @@
+<h1>Comissão</h1>
+
+<div class="search-form">
+    <% form_tag comissaos_path, :method => 'get' do %>
+        <%= label_tag :venda, 'Pesquisar Apólise:' %>
+        <%= text_field_tag :search, params[:search] %>
+        <%= submit_tag "Pesquisar", :name => nil %>
+    <% end %>
+</div>
+
+<table class="clist">
+    <thead>
+        <tr>
+            <th width="70">Apolice</th>
+            <th>Cliente</th>
+            <th>Seguradora</th>
+            <th>Produtor</th>
+            <th width="70">N° Parcela</th>
+            <th width="120px">Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% for comissao in @comissaos %>
+            <tr>
+                <td><%=h comissao.apolice %></td>
+                <td><%=h comissao.venda.cliente.nome %></td>
+                <td><%=h comissao.venda.seguradora.nome %></td>
+                <td><%=h comissao.venda.user.name %></td>
+                <td><%=h comissao.parcela %></td>
+                
+                <td align="center">
+                    <%= link_to 'Exibir', comissao %> |
+                    <%= link_to 'Editar', edit_comissao_path(comissao) %> |
+                    <%= link_to 'Excluir', comissao, :confirm => 'Deseja excluir?', :method => :delete %>
+                </td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>
+
+<br />
+
+<%= link_to 'Incluir Comissão', new_comissao_path %>
+

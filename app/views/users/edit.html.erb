@@ -1,0 +1,26 @@
+<h1>Editar Cadastro</h1>
+
+<%= error_messages_for :user %>
+
+<%= link_to 'Voltar', user_path(logged_in_user) %>
+
+<% form_for :user, :url => user_url(@user), :html => { :method => :put } do |f| -%>
+    
+    <ul class="ul-form">
+        <li>
+            <label class="lbl-form">E-mail:</label>
+            <%= f.text_field :email, :size => 60 %>
+        </li>
+        <li>
+            <label class="lbl-form">Senha:</label>
+            <%= f.password_field :password, :size => 20 %>
+        </li>
+        <li>
+            <label class="lbl-form">Confirmar Senha:</label>
+            <%= f.password_field :password_confirmation, :size => 20 %>
+        </li>
+        <li class="ul-form-btn">
+            <%= submit_tag 'Salvar' %>
+        </li>
+    </ul>
+<% end -%>

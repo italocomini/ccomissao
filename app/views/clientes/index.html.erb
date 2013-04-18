@@ -1,0 +1,37 @@
+<h1>Cliente</h1>
+
+<div class="search-form">
+    <% form_tag clientes_path, :method => 'get' do %>
+        <%= label_tag :name, 'Pesquisar por Nome:' %>
+        <%= text_field_tag :search, params[:search] %>
+        <%= submit_tag "Pesquisar", :name => nil %>
+    <% end %>
+</div>
+<table class="clist">
+    <thead>
+        <tr>
+            <th width="70px">Código</th>
+            <th>Nome</th>
+            <th width="100px">Telefone</th>
+            <th width="120px">Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% for cliente in @clientes %>
+            <tr>
+                <td><%=h cliente.id %></td>
+                <td><%=h cliente.nome %></td>
+                <td align="center"><%=h cliente.telefone %></td>
+                <td align="center">
+                    <%= link_to 'Exibir', cliente %> |
+                    <%= link_to 'Editar', edit_cliente_path(cliente) %> |
+                    <%= link_to 'Excluir', cliente, :confirm => 'Deseja excluir?', :method => :delete %>
+                </td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>
+
+<br />
+
+<%= link_to 'Incluir Cliente', new_cliente_path %>

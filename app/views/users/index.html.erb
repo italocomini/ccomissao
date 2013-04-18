@@ -1,0 +1,15 @@
+<h1>Usuários</h1>
+<table class="clist">
+    <thead>
+        <tr>
+            <th width="25%">Nome</th>
+            <th width="16%">Usuário</th>
+            <th width="25%">E-mail</th>
+            <th width="17%">Habilitado?</th>
+            <th width="17%">Papel</th>
+        </tr>
+    </thead>
+    <tbody>
+        <%= render :partial => 'user', :collection => @users %>
+    </tbody>
+</table>

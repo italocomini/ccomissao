@@ -1,0 +1,32 @@
+<h1>Vendas</h1>
+
+<table class="clist">
+    <thead>
+        <tr>
+            <th width="70px">Código</th>
+            <th>Cliente</th>
+            <th>Seguradora</th>
+            <th>Produtor</th>
+            <th width="120px">Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% for venda in @vendas %>
+            <tr>
+                <td><%=h venda.id %></td>
+                <td><%=h venda.cliente.nome %></td>
+                <td><%=h venda.seguradora.nome %></td>
+                <td><%=h venda.user.name %></td>
+                <td align="center">
+                    <%= link_to 'Exibir', venda %> |
+                    <%= link_to 'Editar', edit_venda_path(venda) %> |
+                    <%= link_to 'Excluir', venda, :confirm => 'Deseja excluir?', :method => :delete %>
+                </td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>
+
+<br />
+
+<%= link_to 'Incluir Venda', new_venda_path %>

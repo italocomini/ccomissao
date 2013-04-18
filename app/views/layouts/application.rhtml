@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+	<title>Contrata Comissão</title>
+    <%= stylesheet_link_tag "creset" %>
+    <%= stylesheet_link_tag "clayout" %>
+    <%= stylesheet_link_tag "cform" %>
+    <%= stylesheet_link_tag "clist" %>
+    <%= stylesheet_link_tag "nav-h" %>
+    <%= javascript_include_tag "nav-h"  %>
+</head>
+<body>
+	<div class="ccontainer">
+
+		<div class="cmain">
+
+			<div class="cheader">
+
+				<div class="clogo left">&nbsp;</div>
+
+				<div class="cbanner right"></div>
+
+			</div>
+
+			<div class="cmenu">
+                <%= render :partial => 'layouts/menu' %>
+                <%= render :partial => 'layouts/sessao' %>
+            </div>
+
+			<div class="ccontents">
+
+                <% if flash[:notice] -%>
+                    <div class="msg-notice"><%= flash[:notice] %></div>
+                <% end -%>
+                <% if flash[:error] -%>
+                    <div class="msg-error"><%= flash[:error] %></div>
+                <% end -%>
+
+                <%= yield %>
+            </div>
+
+			<div class="clear"></div>
+
+		</div>
+
+		<div class="cfooter">
+            <div>&copy; 2009 - Italo Comini&nbsp;</div>
+        </div>
+
+	</div>
+</body>
+</html>
+

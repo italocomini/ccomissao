@@ -1,0 +1,21 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  venda_id: 1
+  data: 2009-02-21
+  apolice: 1
+  parcela: 1
+  recebido: 1.5
+  cancelado: 1.5
+  retido: 1.5
+  comissao: 1.5
+
+two:
+  venda_id: 1
+  data: 2009-02-21
+  apolice: 1
+  parcela: 1
+  recebido: 1.5
+  cancelado: 1.5
+  retido: 1.5
+  comissao: 1.5

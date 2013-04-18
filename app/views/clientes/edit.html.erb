@@ -1,0 +1,19 @@
+<h1>Cliente</h1>
+
+<% form_for(@cliente) do |f| %>
+    <%= f.error_messages %>
+
+    <ul class="ul-form">
+        <li>
+            <label class="lbl-form">Nome:*</label>
+            <%= f.text_field :nome %>
+        </li>
+        <li>
+            <label class="lbl-form">Telefone:*</label>
+            <%= f.text_field :telefone %>
+        </li>
+        <li>
+            <%= f.submit "Salvar" %><%= link_to 'Voltar', clientes_path %>
+        </li>
+    </ul>
+<% end %>

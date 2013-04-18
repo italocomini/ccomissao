@@ -1,0 +1,20 @@
+.clist{
+    width: 100%;
+    border: 1px #f2f2f2 solid;
+    border-spacing: 2px !important;
+}
+
+.clist td, .clist th{
+    border: 1px #f2f2f2 solid;
+}
+
+.clist tbody td{
+    padding: 3px;
+}
+
+.clist thead th{
+    text-align: center;
+    padding: 5px;
+    background-color: #f9f9f9;
+    border: 1px #e9e9e9 solid;
+}

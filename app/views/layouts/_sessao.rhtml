@@ -1,0 +1,13 @@
+<div class="csessao">
+    <% if is_logged_in? %>
+        Usuário: <i><%= logged_in_user.username %></i> |
+        <%= link_to 'Meu Perfil', user_path(logged_in_user) %> |
+        <%= link_to 'Sair', {:controller => 'account', :action => 'logout'}, :method => :post %>
+    <% else %>
+        <%= link_to 'Entrar', :controller => 'account', :action => 'login' %>
+    <% end %>
+
+    <% if logged_in_user and logged_in_user.has_role?('administrator') %>
+       | <%= link_to 'Administrar', users_path %>
+    <% end %>
+</div>

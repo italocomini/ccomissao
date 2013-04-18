@@ -1,0 +1,78 @@
+<script type="text/javascript">
+
+    function atualizarComissao(){
+        $('#comissao_retido').val($('#comissao_recebido').val() * 0.17);
+        $('#comissao_comissao').val($('#comissao_recebido').val() 
+            - $('#comissao_cancelado').val()
+            - $('#comissao_retido').val());
+
+    }
+
+    $(document).ready(function(){
+        $('#comissao_venda_id').change(function(){
+            $('#vendaShow').load('/comissaos/show_venda/'+this.value);
+        });
+
+        $('.updateValue').blur(function(){
+            atualizarComissao();
+        });
+
+    });
+
+</script>
+
+<h1>Comissão</h1>
+
+<% form_for(@comissao) do |f| %>
+    <%= f.error_messages %>
+
+    <ul class="ul-form">
+        <li>
+            <label class="lbl-form">Cliente:*</label>
+            <%= f.select :venda_id, Venda.find(:all).collect { |item| [item.cliente.nome,item.id] }, { :include_blank => 'Selecione um opção' } %>
+            <div id="vendaShow">
+                <% if @comissao.venda_id != nil %>
+                    <ul class="ul-show">
+                        <li>Seguradora: <b><%= @comissao.venda.seguradora.nome %></b></li>
+                        <li>Produtor: <b><%= @comissao.venda.user.name %></b></li>
+                    </ul>
+                <% end %>
+            </div>
+        </li>
+        <li>
+            <label class="lbl-form">Data:*</label>
+            <%= f.date_select :data %>
+        </li>
+        <li>
+            <label class="lbl-form">Apólice:*</label>
+            <%= f.text_field :apolice %>
+        </li>
+        <li>
+            <label class="lbl-form">Número da Parcela:*</label>
+            <%= f.text_field :parcela, :size => 15 %>
+        </li>
+        <li>
+            <label class="lbl-form">Valor Recebido:*</label>
+            R$<%= f.text_field :recebido, :size => 15, :class => 'updateValue' %>
+        </li>
+        <li>
+            <label class="lbl-form">Valor Cancelado:*</label>
+            R$<%= f.text_field :cancelado, :size => 15, :class => 'updateValue' %>
+        </li>
+        <li>
+            <label class="lbl-form">Valor Retido:*</label>
+            R$<%= f.text_field :retido, :size => 15, :readonly => true %>
+        </li>
+        <li>
+            <label class="lbl-form">Valor da Comissão:*</label>
+            R$<%= f.text_field :comissao, :size => 15, :readonly => true %>
+        </li>
+        <li>
+            <%= f.submit "Salvar" %><%= link_to 'Voltar', comissaos_path %>
+        </li>
+    </ul>
+<% end %>
+
+
+
+

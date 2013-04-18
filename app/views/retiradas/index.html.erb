@@ -1,0 +1,40 @@
+<h1>Retirada</h1>
+
+<table class="clist">
+    <thead>
+        <tr>
+            <th width="70px">Código</th>
+            <th>Corretor</th>
+            <th>Data da Retirada</th>
+            <th>Valor da Retirada</th>
+            <th width="120px">Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% for retirada in @retiradas %>
+            <tr>
+                <td><%=h retirada.id %></td>
+                <td><%=h retirada.user.name %></td>
+                <td><%=h retirada.data_retirada.strftime("%d/%m/%Y") %></td>
+                <td>
+                    <%=h number_to_currency(retirada.valor_retirada,
+                        :unit => "R$",
+                        :separator => ",",
+                        :delimiter => "") %>
+                </td>
+
+
+
+                <td align="center">
+                    <%= link_to 'Exibir', retirada %> |
+                    <%= link_to 'Editar', edit_retirada_path(retirada) %> |
+                    <%= link_to 'Excluir', retirada, :confirm => 'Deseja excluir?', :method => :delete %>
+                </td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>
+
+<br />
+
+<%= link_to 'Incluir Retirada', new_retirada_path %>

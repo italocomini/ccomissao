@@ -1,0 +1,24 @@
+<h1>Retirada</h1>
+<ul class="ul-show">
+    <li>
+        Corretor:
+        <b><%=h @retirada.user.name %></b>
+    </li>
+
+    <li>
+        Data retirada:
+        <b><%=h @retirada.data_retirada.strftime("%d/%m/%Y") %></b>
+    </li>
+
+    <li>
+        Valor retirada:
+        <b><%=h number_to_currency(@retirada.valor_retirada,
+                :unit => "R$",
+                :separator => ",",
+                :delimiter => "") %></b>
+    </li>
+    <li>
+        <%= link_to 'Exibir', edit_retirada_path(@retirada) %> |
+        <%= link_to 'Voltar', retiradas_path %>
+    </li>
+</ul>

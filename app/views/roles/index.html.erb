@@ -1,0 +1,9 @@
+<h1>Permissões para <%= @user.username %></h1>
+
+<h2>Papeis Associados:</h2>
+<ul><%= render :partial => 'role', :collection => @user.roles %></ul>
+
+<br /><br />
+
+<h2>Papeis Disponíveis:</h2>
+<ul><%= render :partial => 'role', :collection => (@all_roles - @user.roles) %></ul>

@@ -1,0 +1,19 @@
+<h1>Venda</h1>
+
+<% form_for(@venda) do |f| %>
+    <%= f.error_messages %>
+   
+    <ul class="ul-form">
+        <li>
+            <label class="lbl-form">Cliente:*</label>
+            <%= f.select :cliente_id, Cliente.find(:all).collect { |item| [item.nome,item.id] } %>
+        </li>
+        <li>
+            <label class="lbl-form">Cliente:*</label>
+            <%= f.select :seguradora_id, Seguradora.find(:all).collect { |item| [item.nome,item.id] }%>
+        </li>
+        <li>
+            <%= f.submit "Salvar" %><%= link_to 'Voltar', vendas_path %>
+        </li>
+    </ul>
+<% end %>

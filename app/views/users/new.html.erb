@@ -1,0 +1,30 @@
+<h1>Usuário</h1>
+<%= error_messages_for :user %>
+
+<% form_for :user, :url => users_path do |f| -%>
+    <ul>
+        <li>
+            <label class="lbl-form">Nome:*</label>
+            <%= f.text_field :name, :size => 60 %>
+        </li>
+        <li>
+            <label class="lbl-form">Usuário:*</label>
+            <%= f.text_field :username, :size => 30 %>
+        </li>
+        <li>
+            <label class="lbl-form">E-mail:*</label>
+            <%= f.text_field :email, :size => 60 %>
+        </li>
+        <li>
+            <label class="lbl-form">Senha:*</label>
+            <%= f.password_field :password, :size => 30 %>
+        </li>
+        <li>
+            <label class="lbl-form">Confirmar Senha:*</label>
+            <%= f.password_field :password_confirmation, :size => 30 %>
+        </li>
+        <li class="ul-form-btn">
+            <%= submit_tag 'Salvar' %>
+        </li>
+    </ul>
+<% end -%>

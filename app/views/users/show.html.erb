@@ -1,0 +1,17 @@
+<h1 style="display:inline">Perfil</h1>
+[<%= link_to 'Editar', edit_user_path(logged_in_user) %>]
+
+
+<ul class="ul-show">
+    <li>Nome: <b><%= @user.name %></b></li>
+    <li>Usuário: <b><%= @user.username %></b></li>
+    <li>E-mail: <b><%= @user.email %></b></li>
+    <li>
+        Usuário desde:
+        <b>
+            <%= @user.created_at.strftime("%d/%m/%Y") %> as
+            <%= @user.created_at.strftime("%H:%M:%S") %>
+        </b>
+
+    </li>
+</ul>

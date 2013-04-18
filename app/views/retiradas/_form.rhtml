@@ -1,0 +1,23 @@
+<h1>Retirada</h1>
+
+<% form_for(@retirada) do |f| %>
+    <%= f.error_messages %>
+
+    <ul class="ul-form">
+        <li>
+            <label class="lbl-form">Corretor:*</label>
+            <%= f.select :user_id, User.find(:all).collect { |item| [item.name,item.id] }, { :include_blank => 'Selecione um opção' }  %>
+        </li>
+        <li>
+            <label class="lbl-form">Data da Retirada:*</label>
+            <%= f.date_select :data_retirada %>
+        </li>
+        <li>
+            <label class="lbl-form">Valor da Retirada:*</label>
+            <%= f.text_field :valor_retirada , :size => 10 %>
+        </li>
+        <li>
+            <%= f.submit "Salvar" %><%= link_to 'Voltar', retiradas_path %>
+        </li>
+    </ul>
+<% end %>
